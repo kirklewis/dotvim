@@ -1,0 +1,49 @@
+[submodule "bundle/solarized"]
+    path = bundle/solarized
+    url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/Dockerfile"]
+    path = bundle/Dockerfile
+    url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "bundle/vim-airline"]
+    path = bundle/vim-airline
+    url = https://github.com/vim-airline/vim-airline
+[submodule "bundle/nerdtree"]
+    path = bundle/nerdtree
+    url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/vim-devicons"]
+    path = bundle/vim-devicons
+    url = https://github.com/ryanoasis/vim-devicons
+    ignore = dirty
+[submodule "bundle/vim-surround"]
+    path = bundle/vim-surround
+    url = https://github.com/tpope/vim-surround
+[submodule "bundle/tcomment"]
+    path = bundle/tcomment
+    url = https://github.com/tomtom/tcomment_vim.git
+[submodule "bundle/dracula"]
+    path = bundle/dracula
+    url = https://github.com/dracula/vim.git
+[submodule "bundle/vim-better-whitespace"]
+    path = bundle/vim-better-whitespace
+    url = https://github.com/ntpeters/vim-better-whitespace.git
+[submodule "bundle/indentline"]
+    path = bundle/indentline
+    url = https://github.com/Yggdroot/indentLine.git
+[submodule "bundle/vim-signify"]
+    path = bundle/vim-signify
+    url = https://github.com/mhinz/vim-signify.git
+[submodule "bundle/vim-gitgutter"]
+    path = bundle/vim-gitgutter
+    url = https://github.com/airblade/vim-gitgutter.git
+[submodule "bundle/vim-fugitive"]
+    path = bundle/vim-fugitive
+    url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/typescript-vim"]
+    path = bundle/typescript-vim
+    url = https://github.com/leafgarland/typescript-vim.git
+[submodule "bundle/vim-json"]
+    path = bundle/vim-json
+    url = https://github.com/elzr/vim-json.git
+[submodule "bundle/auto-pairs"]
+    path = bundle/auto-pairs
+    url = https://github.com/jiangmiao/auto-pairs.git
