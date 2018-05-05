@@ -58,11 +58,6 @@ set noswapfile                      " do not write .swp files
 set nobackup                        " do not write backup files
 set nowritebackup
 
-" mouse - also mapped in `maps.vim`
-if has ("mouse")
-  set mouse=a
-endif
-
 " ------ NERDTree
 let NERDTreeShowHidden = 1                          " Show hidden files
 let NERDTreeIgnore = ['\.DS_Store', '\.git$']       " Do not show these hidden files
