@@ -32,4 +32,7 @@ if has ("autocmd")
     " Other file type detection
     source ~/.vim/filetypes.vim
 
+    " Golang shortcuts
+    autocmd FileType go nmap <leader>b  <Plug>(go-build)
+    autocmd FileType go nmap <leader>r  <Plug>(go-run)
 endif " has("autocmd")
