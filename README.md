@@ -37,9 +37,7 @@ Just a few of many:
 
 - NERDTree shows hidden folders/files except `.git` and `.DS_Store`.
 
-- Tab stops set to 2 for html, vue, cpp, yml and xml. Can be changed in [filetypes.vim](https://github.com/kirklewis/dotvim/blob/master/filetypes.vim).
-
-- Trailing spaces highlighted by default. Using `ctrl-w` calls `:StripWhiteSpace`.
+- Trailing spaces highlighted by default. `:StripWhiteSpace`.
 
 - GitGutter enabled by default and Signify (for SVN, Mercurial) is not. Use `:SignifyToggle` and `:GitGutterToggle` to enable or disable either.
 
@@ -79,11 +77,11 @@ Just a few of many:
 [vim-devicons](https://github.com/ryanoasis/vim-devicons)
 : File type glyphs (icons) useful with NERDTree and vim-airline.
 
-[vim-fugitive](https://github.com/tpope/vim-fugitive.git)
-: Git wrapper for Vim
-
 [vim-gitgutter](https://github.com/airblade/vim-gitgutter.git)
 : Shows a git diff in the 'gutter' (sign column).
+
+[vim-go](https://github.com/fatih/vim-go)
+: Go development plugin for Vim
 
 [vim-json](https://github.com/elzr/vim-json.git)
 : Distinct highlighting for JSON.
