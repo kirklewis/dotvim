@@ -1,5 +1,3 @@
-execute pathogen#infect()
-execute pathogen#helptags()
 
 " Default Color Scheme
 syntax enable
