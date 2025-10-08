@@ -1,0 +1,27 @@
+{
+  "python.pythonPath": "${env:VIM_VENV_PATH}/bin/python",
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "${env:VIM_VENV_PATH}/bin/black",
+  "suggest.noselect": true,
+  "languageserver": {
+    "ruff": {
+      "command": "${env:VIM_VENV_PATH}/bin/ruff",
+      "args": ["server"],
+      "filetypes": ["python"],
+      "initializationOptions": {
+        "settings": {
+          "fixAll": true,
+          "organizeImports": true
+        }
+      }
+    }
+  },
+  "ruff.nativeBinaryPath": "${env:VIM_VENV_PATH}/bin/ruff",
+  "coc.preferences.formatOnSaveFiletypes": ["python"],
+  "coc.preferences.codeActionsOnSave": [
+    "source.organizeImports.ruff",
+    "source.fixAll.ruff"
+  ],
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false
+}
