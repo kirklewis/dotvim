@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    ".vimrc": "shellscript",
+    "*.vim": "shellscript"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.tabSize": 2
+  }
+}

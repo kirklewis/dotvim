@@ -1,103 +1,87 @@
 # **dotvim**
 
-My .vim and [vimrc](https://github.com/kirklewis/dotvim/blob/master/vimrc) setup.
+My .vim and [vimrc](https://github.com/kirklewis/dotvim/blob/master/vimrc) configuration.
 
 ## **Installation**
 
-```
+```bash
 cd ~
-git clone --recursive https://github.com/kirklewis/dotvim.git ~/.vim
+git clone https://github.com/kirklewis/dotvim.git ~/.vim
 ```
 
-Add a symbolic link to .vimrc so Vim can find it.
-```
+Add a symbolic link to `.vimrc` so Vim can find it.
+
+```bash
 ln -s ~/.vim/vimrc ~/.vimrc
 ```
 
+See [Configuration](https://github.com/kirklewis/dotvim/blob/master/README.md#Configuration) full config.
+
 ## **vimrc structure**
 
-The [vimrc](https://github.com/kirklewis/dotvim/blob/master/vimrc) file is structured as follows:
+The [vimrc](https://github.com/kirklewis/dotvim/blob/master/vimrc) is split into logical parts for clarity and maintainability.
 
-- Tim Pope's [Pathogen](https://github.com/tpope/vim-pathogen) at the top to install plugins.
+```bash
+├── autoload/
+│   └── plug.vim        # vim-plug bootstrap script
+├── plugged/            # plugins path for vim-plug
+├── coc-settings.json   # Coc.nvim configuration (LSP, formatters, etc.)
+├── commands.vim        # Custom :commands (MakeFormat, MakeTest, etc.)
+├── filetypes.vim       # Filetype-specific settings & autocmds
+├── mappings.vim        # Key mappings (leader keys, plugin shortcuts)
+├── settings.vim        # General Vim settings (UI, editing behaviour)
+├── themes.vim          # Amazing themes can be configured here
+└── vimrc               # Main entry point, sources the above modules
+```
 
-- Default color scheme - [Solarized](https://github.com/altercation/vim-colors-solarized)
-
-- Settings and mappings (sourced) from [settings.vim](https://github.com/kirklewis/dotvim/blob/master/settings.vim) and [mappings.vim](https://github.com/kirklewis/dotvim/blob/master/mappings.vim) respectively. Keeps the [vimrc](https://github.com/kirklewis/dotvim/blob/master/vimrc) file shorter.
-
-- Auto commands at the bottom. File types are sourced from [filetypes.vim](https://github.com/kirklewis/dotvim/blob/master/filetypes.vim)
-
+Default color scheme - [Catppuccin](https://github.com/catppuccin/nvim)
 
 ## **Settings**
 
 Just a few of many:
 
 - No swap files `*.swp` or backup files generated.
-
 - Visual block kept after indentation [mappings.vim](https://github.com/kirklewis/dotvim/blob/master/mappings.vim).
-
-- NERDTree shows hidden folders/files except `.git` and `.DS_Store`.
-
+- `NERDTree` shows hidden folders/files except `.git` and `.DS_Store`.
 - Trailing spaces highlighted by default. `:StripWhiteSpace`.
+- Support for Python
 
-- GitGutter enabled by default and Signify (for SVN, Mercurial) is not. Use `:SignifyToggle` and `:GitGutterToggle` to enable or disable either.
-
-
-## **Plugins**
-
-[Auto-Pairs](https://github.com/jiangmiao/auto-pairs.git)
-: Insert or delete brackets, parens, quotes in pair.
-
-[Dockerfile](https://github.com/ekalinin/Dockerfile.vim.gitbundle/Dockerfile)
-: Vim syntax file for Docker's Dockerfile.
-
-[Dracula](https://github.com/dracula/vim.git)
-: 😱 Dracula colour scheme for vim.
-
-[IndentLine](https://github.com/Yggdroot/indentLine.git)
-: Displaying thin vertical lines at each indentation level for code indented with spaces.
-
-[NERDTree](https://github.com/scrooloose/nerdtree.git)
-: Explore your filesystem and to open files and directories.
-
-[Solarized](https://github.com/altercation/vim-colors-solarized.git)
-: Solarized colour scheme for vim.
-
-[TComment](https://github.com/tomtom/tcomment_vim.git)
-: Inline and block commenting for various programming languages.
-
-[TypeScript-vim](https://github.com/leafgarland/typescript-vim.git)
-: Syntax file and other settings for [TypeScript](http://typescriptlang.org)
-
-[vim-airline](https://github.com/vim-airline/vim-airline)
-: Useful status line for vim.
-
-[vim-better-whitespace](https://github.com/ntpeters/vim-better-whitespace.git)
-: Highlight trailing white spaces and tabs.
-
-[vim-devicons](https://github.com/ryanoasis/vim-devicons)
-: File type glyphs (icons) useful with NERDTree and vim-airline.
-
-[vim-gitgutter](https://github.com/airblade/vim-gitgutter.git)
-: Shows a git diff in the 'gutter' (sign column).
-
-[vim-go](https://github.com/fatih/vim-go)
-: Go development plugin for Vim
-
-[vim-json](https://github.com/elzr/vim-json.git)
-: Distinct highlighting for JSON.
-
-[vim-signify](https://github.com/mhinz/vim-signify.git)
-: Highlights modification in files under VCS like Git, SVN, etc.
-
-[vim-surround](https://github.com/tpope/vim-surround.git)
-: Surround text with characters, like quotes, HTML tags, etc.
+See [vimrc](./vimrc#L4)
 
 
-**Update bundles**
+## Configuration
 
+<details>
+<summary>Click to expand Python venv + Conquerer or Completion configuration instructions.</summary>
+
+### Create a dedicated Python venv for Vim tooling
+
+```bash
+python3 -m venv ~/.venvs/vim
+source ~/.venvs/vim/bin/activate
+pip install --upgrade pip
+pip install black ruff mypy
 ```
-cd ~/.vim
-git submodule foreach git pull origin master
+This config expects Vim tooling in its own virtual environment.
+
+### Environment variables for Coc
+
+Add this to your shell startup file (`.bashrc`, `.zshrc`, etc.).
+
+```bash
+export VIM_VENV_PATH="$HOME/.venvs/vim"
 ```
+
+In [Conqueror of Completion settings](./coc-settings.json), reference tools like this:
+
+```bash
+"python.pythonPath": "${env:VIM_VENV_PATH}/bin/python",
+"ruff.nativeBinaryPath": "${env:VIM_VENV_PATH}/bin/ruff"
+```
+
+### First‑time plugin installation
+
+Run `:PlugInstall` and Restart Vim
+</details>
 
 [MIT License](https://github.com/kirklewis/dotvim/blob/master/LICENSE)

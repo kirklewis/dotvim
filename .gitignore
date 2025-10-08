@@ -1,0 +1,8 @@
+# Vim Plugins (vim-plug)
+plugged/*
+!plugged/.gitkeep
+
+# Vim
+*.swp
+*.swo
+*.un~
